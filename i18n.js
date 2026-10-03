@@ -1,8 +1,8 @@
 /* Wiki Technoïsme — i18n loader
    Ajouter une langue = 1) traduire content.fr.js en content.<lang>.js  2) ajouter le code dans LANGS. */
 (function () {
-  var LANGS = ['fr', 'en', 'es'];
-  var LABELS = { fr: 'FR', en: 'EN', es: 'ES' };
+  var LANGS = ['fr', 'en', 'es', 'de', 'ja', 'pt', 'zh', 'ko', 'it'];
+  var LABELS = { fr: 'FR', en: 'EN', es: 'ES', de: 'DE', ja: '日本語', pt: 'PT', zh: '中文', ko: '한국어', it: 'IT' };
   window.I18N = window.I18N || {};
   function detect() {
     try { var s = localStorage.getItem('wiki-lang'); if (s && LANGS.indexOf(s) >= 0) return s; } catch (e) {}
@@ -44,7 +44,8 @@
         b.className = 'lang-btn' + (l === lang ? ' active' : '');
         b.textContent = LABELS[l];
         b.title = l;
-        b.onclick = function () { window.switchLang(l); };
+        b
+.onclick = function () { window.switchLang(l); };
         sw.appendChild(b);
       });
     }
